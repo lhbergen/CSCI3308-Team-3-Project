@@ -100,7 +100,7 @@ ProjectSourceCode/
 │   ├─ models/        # Raw SQL queries
 │   └─ views/         # Handlebars templates & public assets
 └─ test/
-    └─ integration/   # End-to-end tests (Mocha/Chai/Supertest)
+    └─ test/          # Unit and integration tests (Mocha/Chai/Supertest)
 ```
 
 ## Contributors:
