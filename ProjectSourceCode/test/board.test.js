@@ -1,3 +1,8 @@
+/*
+  * @file board.test.js
+  * @description Tests for the board model, ensuring it can create boards and handle basic operations.
+*/
+
 const { expect } = require('chai');
 const { createBoard } = require('../src/models/boardModel.js');
 const db = require('../src/db.js');
@@ -9,7 +14,8 @@ describe('Board Model', function () {
 
   let createdBoardId;
 
-  it('should create a board with name and description', async () => {
+  it('should create a board with name and description changed', async () => {
+
     const newBoard = await createBoard({
       name: 'Test Board',
       description: 'Board for testing'
@@ -24,11 +30,4 @@ describe('Board Model', function () {
 
   });
 
-  after(async () => {
-
-    if (createdBoardId) {
-      await db.query('DELETE FROM boards WHERE board_id = $1', [createdBoardId]);
-    }
-    
-  });
 });

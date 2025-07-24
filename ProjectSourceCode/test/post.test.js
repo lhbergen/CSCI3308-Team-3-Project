@@ -1,3 +1,8 @@
+/*
+  * @file post.test.js
+  * @description Tests for the post model, ensuring it can create posts and handle basic operations.
+*/
+
 const { expect } = require('chai');
 const { createUser } = require('../src/models/userModel.js');
 const { createBoard } = require('../src/models/boardModel.js');
@@ -27,7 +32,7 @@ describe('Post Model', function () {
 
   });
 
-  it('should create a post with valid user and board9999', async () => {
+  it('should create a post with valid user and board', async () => {
     testPost = await createPost({
       board_id: testBoard.board_id,
       user_id: testUser.user_id,
@@ -42,17 +47,4 @@ describe('Post Model', function () {
 
   });
 
-  after(async () => {
-
-    if (testPost) {
-      await db.query('DELETE FROM posts WHERE post_id = $1', [testPost.post_id]);
-    }
-    if (testBoard) {
-      await db.query('DELETE FROM boards WHERE board_id = $1', [testBoard.board_id]);
-    }
-    if (testUser) {
-      await db.query('DELETE FROM users WHERE user_id = $1', [testUser.user_id]);
-    }
-  });
-  
 });

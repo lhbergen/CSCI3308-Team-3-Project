@@ -1,3 +1,8 @@
+/*
+  @file user.test.js
+  @description: Tests for the user model, ensuring it can create users and handle basic operations
+*/
+
 const { expect } = require('chai');
 const { createUser } = require('../src/models/userModel.js');
 const db = require('../src/db.js');
@@ -23,11 +28,4 @@ describe('User Model', function () {
 
   });
 
-  after(async () => {
-
-    if (testUser) {
-      await db.query('DELETE FROM users WHERE user_id = $1', [testUser.user_id]);
-    }
-    
-  });
 });
