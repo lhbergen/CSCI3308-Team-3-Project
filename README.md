@@ -96,6 +96,19 @@ Run tests inside the container
 ```
 docker-compose exec web npm test
 ```
+
+If that did not work, please try:
+```
+docker-compose down -v
+```
+next,
+```
+docker-compose up -d --build
+```
+finally,
+```
+docker-compose exec web npm test
+```
 ## Directory Structure
 
 ```
