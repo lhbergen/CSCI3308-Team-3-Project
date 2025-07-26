@@ -78,9 +78,21 @@ Open your browser to:
 http://localhost:3000
 
 
-### Run Integration Tests
+### Run Tests
 
 Execute the Mocha suite inside the web container:
+Install dev dependencies in Docker
+```
+# Inside Dockerfile
+RUN npm install --include=dev
+```
+Rebuild your containers
+```
+docker-compose down -v
+docker-compose build
+docker-compose up -d
+```
+Run tests inside the container
 ```
 docker-compose exec web npm test
 ```
